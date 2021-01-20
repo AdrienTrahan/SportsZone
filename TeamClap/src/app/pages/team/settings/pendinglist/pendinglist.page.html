@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"PENDING.TITLE" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let coach of (this.pendinglist); let i = index">
+    <ion-card>
+      <app-smallplayer [img]="coach.image" [role]="false" [first]="coach.first" [last]="coach.last"></app-smallplayer>
+      <div class="refuseButton" (click)="refuse(i)">
+        <img src="../../../../../assets/x.png" alt="">
+      </div>
+      <div class="acceptButton" (click)="accept(i)">
+        <img src="../../../../../assets/checkmark.png" alt="">
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

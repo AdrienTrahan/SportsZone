@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon color="white" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white">{{"NEWMESSAGE.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="this.selectedRecipients.length == 0" (click)="finish()">
+        <ion-icon color="white" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-tag-input [searchField]="this.searchEntryValue" [ngModel]="tags" (delete)="deleted($event)" (type)="type($event)" (verify)="verify($event)" class="inviteTagInput" ngDefaultControl></app-tag-input>
+  <div class="recipientContainer" *ngFor="let recipient of (this.filteredRecipients); let i = index">
+    <ion-card (click)="selectRecipient(i)" class="clickable selectingcard">
+      <app-smallplayer [img]="recipient.image" [p_first]="recipient.p_first" [p_last]="recipient.p_last" [role]="recipient.role" [first]="recipient.first" [last]="recipient.last"></app-smallplayer>
+    </ion-card>
+    <div [class]="'selectionCircle ' + this.isRecipientSelected(recipient)"></div>
+  </div>
+</ion-content>

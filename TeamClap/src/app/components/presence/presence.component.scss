@@ -1,0 +1,62 @@
+
+:root{
+    font-family: "Roboto";
+}
+.container{
+    display: flex;
+    width: calc(100% - 150px);
+    margin: 20px 10px 0px 20px;
+    max-width: 200px;
+    height: 30px;
+    border-radius: 8px;
+    clear: both;
+    // box-shadow: 0px 3px 7px 2px #00000045;
+}
+
+.green{
+    flex: 1;
+    background-color: #21ed95;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 4px;
+    border-radius: 8px 0px 0px 8px;
+}
+.gray{
+    flex: 1;
+    background-color: #e6e6e6;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 4px;
+}
+.red{
+    flex: 1;
+    background-color: #ff004c;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 4px;
+    border-radius: 0px 8px 8px 0px;
+}
+
+div[presence="YES"] .green{
+    box-shadow: 0px 0px 0px 3px #3680f1;
+    margin-right: 3px;
+}
+div[presence="MAYBE"] .gray{
+    box-shadow: 0px 0px 0px 3px #3680f1;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+div[presence="NO"] .red{
+    box-shadow: 0px 0px 0px 3px #3680f1;
+    margin-left: 3px;
+}
+
+.clickable:active{
+    filter: brightness(0.95);
+}

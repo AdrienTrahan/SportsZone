@@ -1,0 +1,10 @@
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-item (click)="selectConvo(message.id)" class="messageItem" button *ngFor="let message of this.messages; let i = index">
+        <div class="resizer"></div>
+        <h1 class="title">{{message.title}}</h1>
+        <h2 class="desc">{{message.lastMessage}}</h2>
+    </ion-item>
+</ion-content>

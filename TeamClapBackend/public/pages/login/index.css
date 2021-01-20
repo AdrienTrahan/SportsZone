@@ -1,0 +1,153 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    overflow: auto;
+}
+
+.navbar{
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: all 500ms;
+    background-color: #161B4A;
+}
+
+.navbar .leftItems{
+    position: relative;
+    height: 100%;
+    width: fit-content;
+
+}
+.navbar .leftItems .brand{
+    width: 120px;
+    margin: 25px 20px 25px 20px;
+    cursor: pointer;
+}
+.navbar .rightItems{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.navbar .rightItems h3{
+    color: white;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    line-height: 15px;
+    margin: 22.5px 20px 20px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+.navbar .rightItems button{
+    height: 35px;
+    outline: none;
+    margin: 12.5px 15px 15px 20px;
+    min-width: 100px;
+    padding: 0px 30px 0px 30px;
+    background-color: #25E481;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navbar .rightItems button:hover, .button:hover{
+    filter: brightness(0.93);
+}
+.navbar .rightItems button:active, .button:active{
+    filter: brightness(0.6);
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar .rightItems h3, .navbar .rightItems button{
+        display: none;
+    }
+    .navbar .rightItems .hamburger{
+        display: block;
+    }
+}
+.hamburger{
+    width: 30px;
+    height: 100%;
+    margin: 0px 10px 0px 5px;
+    cursor: pointer;
+    display: none;
+}
+.hamburger img{
+    filter: invert(1);
+    width: 20px;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.content{
+    margin: 60px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+.content .box{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+.header{
+    margin: 40px 0px 30px 0px;
+    font-family: "Poppins";
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+}
+.inputTitle{
+    font-weight: 400;
+    font-family: "Poppins";
+    font-size: 15px;
+    margin: 0px 0px 2.5px 0px;
+}
+.credentialEntry{
+    background: #F6F6F6;
+    border: 2px solid #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 50px;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 30px 0px;;
+}
+
+.proceed{
+    height: 50px;
+    background-color: #25E481;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    width: 140px;
+    font-family: "poppins";
+    outline: none;
+    cursor: pointer;
+}
+
+
+.errorText{
+    font-family: "Poppins";
+    font-weight: 400;
+    color: red;
+    font-size: 15px;
+    margin: 0px 0px 30px 0px;
+    display: none;
+}
+
+.errorBox{
+    box-shadow: 0px 0px 0px 3px red;
+}

@@ -1,0 +1,8 @@
+<ion-content class="no-scroll">
+  <ion-list>
+    <ion-item (click)='this.selectRow(i)' mode='md' button *ngFor="let role of availableNames; let i = index;">
+      <h6>{{"HOME.POPOVER." + role.title | translate}}</h6>
+      <ion-icon *ngIf="this.selectedIndex == i" name="checkmark"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,6 @@
+<ion-item *ngIf="this.options.includes('copy')" (click)="copy()" button>
+  {{copyText}}
+</ion-item>
+<ion-item *ngIf="this.options.includes('save')" (click)="save()" button>
+  {{saveText}}
+</ion-item>

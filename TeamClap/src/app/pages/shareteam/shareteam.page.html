@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{"SHARETEAM.TITLE" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #container>
+  <canvas #canvas></canvas>
+  <p class="instructions">{{"SHARETEAM.0" | translate}}</p>
+  <div class="qrcodeWrapper">
+    <qr-code  class="qrcode" [value]="url" [size]="this.screensize"></qr-code>
+  </div>
+  <p class="or">or</p>
+  <ion-input class="link" expand="block" [value]="code" readonly></ion-input>
+  <div (click)="copyUrl()" class="linkOverlay"></div>
+  <ion-button (click)="shareUrl()" class="shareButton" expand="block">{{"SHARETEAM.2" | translate}}</ion-button>
+  <ion-button (click)="inviteUrl()" class="genButton" expand="block">{{"SHARETEAM.3" | translate}}</ion-button>
+</ion-content>

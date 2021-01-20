@@ -1,0 +1,235 @@
+:root{
+    font-family: "Roboto";
+}
+.titre{
+    font-weight: 600;
+    font-size: 27px;
+    margin: 20px 10px 0px 20px;
+    text-align: center;
+}
+.presenceBoard{
+    
+    font-weight: 400;
+    font-size: 14px;
+    margin: 4px 10px 0px 20px;
+    text-align: center;
+    color: #ADADAD;
+
+}
+.presenceWrapper{
+    clear: both;
+    margin: 25px 10px 10px 20px;
+}
+.presenceWrapper:active{
+    opacity: 0.8;
+}
+.presence{
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    margin-top: 5px;
+}
+.presence[presence="YES"]{
+    background-color: #21ed95;
+}
+.presence[presence="MAYBE"]{
+    background-color: #e6e6e6;
+}
+.presence[presence="NO"]{
+    background-color: #ff004c;
+}
+.presence[presence="LATE"]{
+    background-color: orange;
+}
+.presenceState{
+    float: left;
+    margin: 0px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 6px 0px 0px 5px;
+    margin-top: 5px;
+
+}
+.modifyState{
+    clear: both;
+    float: left;
+    font-size: 16px;
+    color: #3681F1;
+    margin: 0px;
+}
+img{
+    filter: invert(1.0);
+    width: 60%;
+}
+.presenceTextWrapper{
+    margin: 0px 0px 0px 10px;
+    float: left;
+}
+.place{
+    clear: both;
+    font-weight: 600;
+    font-size: 25px;
+    margin: 40px 10px 0px 20px;
+}
+.placeTitle{
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    margin: 10px 10px 0px 10px;
+}
+.placeTitle{
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    margin: 10px 10px 0px 10px;
+}
+.placeAddress{
+    font-size: 15px;
+    color: #3681F1;
+    font-weight: 400;
+    margin: 5px 10px 10px 10px;
+}
+.placesWrapper{
+    margin: 0px 10px 0px 10px;
+}
+.place{
+    clear: both;
+    font-weight: 600;
+    font-size: 25px;
+    margin: 40px 10px 0px 20px;
+}
+.clickable:active{
+    filter: brightness(0.95);
+}
+.changeButton{
+    width: auto;
+    max-width: 200px;
+    min-width: 20%;
+    height: 40px;
+    background-color: #FF005C;
+    float: right;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 11px 15px 0px 15px;
+
+}
+.presenceInfoButton{
+    margin: 20px 20px 15px 20px;
+    height: 40px;
+}
+.separator{
+    border-top: 1px solid #DDDDDD;
+    width: calc(100% - 40px);
+    margin: 0px 20px 0px 20px;
+}
+.dateTitle{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #25E481;
+    margin: 0px;
+}
+.calendarIcon{
+    --color: #25E481;
+    color: #25E481;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 2.5px 0px 0px 0px;
+    
+}
+
+.dateButton, .placeButton{
+    padding: 10px 25px 10px 25px;
+    margin: 0px;
+    position: relative;
+}
+.placeTitle{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0088FF;
+    margin: 0px;
+}
+.placeSubtitle{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #A9A9A9;
+    margin: 0px;
+}
+.navigateIcon{
+    --color: #0088FF;
+    color: #0088FF;
+    float: right;
+    vertical-align: top;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.clickableBtn:active{
+    background-color: #80808026;
+}
+.getPresence{
+    margin: 20px 0px 0px 0px;
+    height: 40px;
+    background-color: #25E481;
+    color: white;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    position: relative;
+    width: calc(100% - 80px);
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 5px 5px 5px;
+    max-width: 400px;
+}
+
+ion-item-divider.md, ion-item-divider.wp{
+    background-color: #f5f5f5;
+}
+.adversary{
+    color: #0088FF;
+    font-size: 23px;
+}
+.chevronIcon{
+    margin: 2px 0px 0px 2px;
+    opacity: 0.7;
+}
+ion-list-header.md, ion-list-header.wp{
+    font-size: 25px;
+    font-weight: 700;
+}
+ion-list-header{
+    margin: 10px 0px 10px 0px;
+}

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start" *ngIf="this.selectedPage == 0">
+      <ion-back-button *ngIf="!this.deleting" color="light" defaultHref="../"></ion-back-button>
+      <ion-button *ngIf="this.deleting && this.selectedPage == 0 && (alias.teamInfo.access == 2 || alias.teamInfo.access == 3)" color="white" (click)="cancelDeleteEvents()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">{{"CONTROLLER." + this.selectedPage | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!this.deleting && this.selectedPage == 0 && (alias.teamInfo.access == 2 || alias.teamInfo.access == 3)" color="white" (click)="deleteEvents()">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="this.deleting && this.selectedPage == 0 && (alias.teamInfo.access == 2 || alias.teamInfo.access == 3)" color="white" (click)="deleteEventsTrash()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!this.deleting && this.selectedPage == 0 && (alias.teamInfo.access == 2 || alias.teamInfo.access == 3)" color="white" (click)="newEvent()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="this.selectedPage == 1 && (alias.teamInfo.access == 2 || alias.teamInfo.access == 3)" color="white" (click)="shareTeam()">
+        <ion-icon name="link-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="this.selectedPage == 2" color="white" (click)="newMessageThread()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-tabs #tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [tab]="'events?' + parameters" (click)="selectPage(0)">
+        <ion-icon [color]="(this.selectedPage == 0) ? 'navbar-theme' : ''" name="baseball-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [tab]="'people?' + parameters" (click)="selectPage(1)">
+        <ion-icon [color]="(this.selectedPage == 1) ? 'navbar-theme' : ''" name="people-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [tab]="'mail?' + parameters" (click)="selectPage(2)">
+        <ion-icon [color]="(this.selectedPage == 2) ? 'navbar-theme' : ''" name="mail-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [tab]="'settings?' + parameters" (click)="selectPage(3)">
+        <ion-icon [color]="(this.selectedPage == 3) ? 'navbar-theme' : ''" name="settings-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

@@ -1,0 +1,19 @@
+ion-list{
+    padding: 10px 0px 10px 0px;
+    overflow: none;
+}
+ion-row:active, ion-col:active{
+    background-color: #eaeaea;
+    border-radius: inherit !important;
+}
+h6{
+    font-weight: 600;
+}
+ion-item:last-child {
+    --border-width: 0;
+    --inner-border-width: 0;
+}
+*[name="checkmark"]{
+    position: absolute;
+    right: 15px;
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"GENERALTEAM.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]='(this.name == "" || (this.alias.teamInfo.name == this.name && this.alias.teamInfo.category == this.category && this.alias.teamInfo.city == this.city && this.unmodified.image == (this.image || this.imageUrl))) || !this.saveEnabled' (click)="this.save()" class="">
+        <ion-icon color="white" name="save-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    {{"GENERALTEAM.HEADER" | translate}}
+  </ion-list-header>
+  <ion-item button (click)="selectPicture()">
+    <ion-label>{{"GENERALTEAM.0" | translate}}</ion-label>
+    <img class="profileImage" [src]="imageUrlSafe || image || '../../assets/sportempty.png'" alt="">
+    <span class="spanChange">{{"GENERALTEAM.1" | translate}}</span>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"GENERALTEAM.2" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" [(ngModel)]="name" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"GENERALTEAM.3" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" [(ngModel)]="category" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"GENERALTEAM.4" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" [(ngModel)]="city" ></ion-input>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,30 @@
+.inviteTagInput{
+    width: 100%;
+    height: auto;
+}
+.clickable:active{
+    filter: brightness(0.95);
+}
+.selectionCircle{
+    width: 20px;
+    height: 20px;
+    margin: 0px 0px 0px 00px;
+    border: 2px solid #bfbfbf;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: calc(50% - 10px);
+}
+.selectedSelectionCircle{
+    border: none;
+    background-color: #3880ff;
+}
+.container:active > .date, .container:active > .information{
+        filter: brightness(0.95);
+}
+.selectingcard{
+    margin-right: 50px;
+}
+.recipientContainer{
+    position: relative;
+}

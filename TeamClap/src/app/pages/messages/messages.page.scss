@@ -1,0 +1,209 @@
+.inputBar{
+    position: relative;
+    margin: 0px;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #cdcdcd;
+    display: flex;
+}
+.messageTextArea{
+    margin: 10px;
+    height: 42px;
+    flex: 1;
+    resize: none;
+    outline: none;
+    border-radius: 8px;
+    min-height: 42px;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #eeeeee;
+}
+.sendButton{
+    position: relative;
+    right: 10px;
+    top: 10px;
+    height: 40px;
+    width: 80px;
+    margin: 0px;
+    margin-left: 10px;
+    --background:#25E481;
+}
+.sendButton2{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 40px;
+    width: 80px;
+    margin: 0px;
+    --background:#25E481;
+    z-index: 10;
+}
+.bubble{
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+    margin: 10px 10px 0px 10px;
+    position: relative;
+}
+.rightBubble{
+    background-color: #0088ff;
+    color: white;
+    float: right;
+    clear: both;
+}
+.leftBubble{
+    background-color: #ececec;
+    color: black;
+    float: left;
+    clear: both;
+}
+.bubbleTextContainer{
+    resize: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    white-space: pre-wrap
+}
+.wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.textView{
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px 0px 20px 0px;
+}
+#spinner{
+    position: absolute;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 30px 0px 30px 0px;
+    margin-left: calc(50% - 25px);
+}
+.imageButton{
+    height: 30px;
+    margin: 0px;
+    --background: transparent;
+    --box-shadow: none;
+    position: relative;
+    margin: 15px 0px 0px 0px;
+    margin-right: -10px;
+}
+.imageButton:active{
+    opacity: 0.7;
+}
+.mediaTypeContainer{
+    padding: 0px;
+    margin: 10px 10px 0px 10px;
+    max-width: 60%;
+}
+.imageBubble{
+    width: auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.imageBubble img{
+    display: block;
+    max-height:200px;
+    width: auto;
+    height: auto;
+}
+.videoBubble{
+    width: auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.videoBubble video{
+    display: block;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
+.documentBubble{
+}
+.instructionTitle{
+    font-family: "Poppins";
+    font-size: 14px;
+    margin: 10px 20px 10px 20px;
+    cursor: pointer;
+    font-weight: 400;;
+}
+.mediaTypeContainer:has(div.documentBubbleContainer){
+    box-shadow: 0px 0px 0px 5px blue;
+}
+.documentPreview{
+    width: 100%;
+}
+
+.InputBox{
+    width: fit-content;
+    margin: 15px  15px 15px 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 0px 5px #e6e6e6;
+    float: left;
+}
+.closeButton{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heightDelete{
+    float: left;
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    margin: 0px 0px 0px -45px;
+}
+.bubbleContainerInput{
+    position: relative;
+    height: 100%;
+}
+.clickable:hover{
+    filter: brightness(0.9);
+}
+.clickable:active{
+    filter: brightness(0.7);
+}
+.bubbleAuthor{
+    position: absolute;
+    bottom: -40px;
+    height: 20px;
+    font-size: 11px;
+    width: 2000px;
+    color: gray;
+    left: 5px;
+}
+.mediaSpinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3);
+    z-index: 15;
+}
+.spinnerContainer{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 14;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffffa8;
+}

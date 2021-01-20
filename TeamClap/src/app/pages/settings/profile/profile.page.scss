@@ -1,0 +1,33 @@
+.phoneInput{
+    color: #008dff;
+    text-align: right;
+}
+.mailInput{
+    color: #008dff;
+    text-align: right;
+}
+.ion-valid {
+    --highlight-background: transparent !important;
+}
+
+
+.right{
+    text-align: right;
+}
+
+.closeButton{
+    --background: var(--ion-color-danger);
+    flex: 1;
+    height: 40px;
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    color: white;
+}
+.addButton{
+    --background: var(--ion-color-primary);
+    flex: 1;
+    height: 40px;
+    margin: 0px 0px 0px 10px;
+    padding: 0px;
+    color: white;
+}

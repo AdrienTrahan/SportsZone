@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button text="{{'SETTINGS.ACCOUNTINFO.BACKTITLE' | translate}}" color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"SETTINGS.ACCOUNTINFO.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]='this.firstname == this.unmodified.firstname && this.lastname == this.unmodified.lastname && this.email == this.unmodified.email' (click)="this.save()" class="">
+        <ion-icon color="white" name="save-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>
+      {{"SETTINGS.ACCOUNTINFO.0" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-input [(ngModel)]="firstname"></ion-input>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>
+      {{"SETTINGS.ACCOUNTINFO.1" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-input [(ngModel)]="lastname"></ion-input>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>
+      {{"SETTINGS.ACCOUNTINFO.2" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-input [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>
+      {{"SETTINGS.ACCOUNTINFO.3" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item routerLink="/password" routerLinkActive="active" class="" button color="primary">
+    {{"SETTINGS.ACCOUNTINFO.4" | translate}}
+  </ion-item>
+</ion-content>

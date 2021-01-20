@@ -1,0 +1,34 @@
+
+.background{
+    background-color: #f3f3f3;
+    padding: 5px 10px 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tag{
+    margin: 5px 5px 0px 0px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    height: 30px;
+    background-color: #3980ff;
+    color: white;
+    white-space:nowrap;
+    display: inline-block;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tagInput{
+    background-color: transparent;
+    border: none;
+    color: gray;
+    
+    outline: none;
+    display: inline-block;
+    height: 30px;
+    flex-grow: 1;
+    margin: 5px 0px 0px 0px;
+}
+.highlightedTag{
+    background-color: #1353c6;
+}

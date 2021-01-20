@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"MESSAGES.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" [disabled]="(this.title == this.alias.title || this.title == '') && !this.enabledButton" class="">
+        <ion-icon color="white" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-item>
+    <ion-label>{{"MESSAGES.TITLEITEM" | translate}}</ion-label>
+    <ion-input [(ngModel)]="this.title" type="text" class="right" placeholder="ex: Pool party"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item-divider>
+    <ion-label class="">{{"MESSAGES.PARTICIPANTS" | translate}}</ion-label>
+  </ion-item-divider>
+  <ion-item button (click)="openPlayerProfile(i)" class="" *ngFor="let participant of this.participants; let i = index">
+    <img [src]="participant.image" alt="">
+    <ion-label class="">{{participant.first}} {{participant.last}}</ion-label>
+  </ion-item>
+</ion-content>

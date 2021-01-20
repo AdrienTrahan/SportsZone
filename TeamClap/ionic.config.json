@@ -1,0 +1,7 @@
+{
+  "name": "TeamClap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

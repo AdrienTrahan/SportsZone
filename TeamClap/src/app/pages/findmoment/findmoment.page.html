@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme" >
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+          <ion-icon color="white" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white">{{monthTitle}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="this.eventSource.length == 0" (click)="finish()">
+        <ion-icon color="white" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      {{"MOMENT.0" | translate}}
+    </ion-list-header>
+    <br>
+    <ng-template class="bubbleWrapper" #template let-view="view" let-row="row" let-col="col">
+      <div class="bubbleWrapper">{{view.dates[row*7+col].label}}</div>
+      
+    </ng-template>
+    <calendar 
+      id="calendarComponent"
+      [eventSource]="this.eventSource"
+      [calendarMode]="this.calendar.mode"
+      [currentDate]="this.calendar.currentDate"
+      [monthviewDisplayEventTemplate]="template"
+      (onCurrentDateChanged)="eventSelected($event)"
+      (onTitleChanged)="titleChanged($event)"
+      (onTimeSelected)="timeSelected($event)"
+      lockSwipes="true"
+      [locale]="calendar.locale"
+      autoSelect="false">
+    </calendar>
+    <div class="monthToolbar">
+      <ion-button class="prevButton" fill="clear" (click)="goBackwardOneMonth()">
+        <ion-icon name="arrow-back" size="medium" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button class="nextButton" fill="clear" (click)="goForwardOneMonth()">
+        <ion-icon name="arrow-forward" size="medium" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-list>
+  <ion-item-divider></ion-item-divider>
+  <ion-list>
+    <ion-list-header>
+      {{"MOMENT.1" | translate}}
+    </ion-list-header>
+    <br>
+    <ion-item>
+      <ion-label>{{"MOMENT.2" | translate}}</ion-label>
+      <ion-datetime [(ngModel)]="currentPickerDateNow" display-format="HH:mm" [value]="currentPickerDateNow"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"MOMENT.3" | translate}}</ion-label>
+      <ion-datetime [(ngModel)]="currentPickerDateAfter" display-format="HH:mm" [value]="currentPickerDateAfter"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  
+  
+  
+</ion-content>

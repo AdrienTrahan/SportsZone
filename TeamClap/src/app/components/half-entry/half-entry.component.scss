@@ -1,0 +1,23 @@
+input{
+    width: calc(50% - 50px);
+    margin: 10px 45px 0px 45px;
+    height: 52px;
+    border: none;
+    background-color: #EDEDED;
+    border-radius: 4px;
+    outline: none;
+    padding: 0px 10px 0px 10px;
+
+    &:focus{
+        box-shadow: 0px 0px 0px 3px #56A0F6;
+    }
+    &::placeholder{
+        text-align: center;
+    }
+    &[side="left"]{
+        margin: 10px 5px 0px 45px;
+    }
+    &[side="right"]{
+        margin: 10px 45px 0px 5px;
+    }
+}

@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <div class="background"></div>
+  <div class="content">
+    <div class="center-wrapper">
+      <h1 class="brand"><span class="prefix-brand">Sports</span><span class="subfix-brand">Zone</span></h1>
+      <h2 class="desc">{{"AUTH.QUOTE" | translate}}</h2>
+      <div *ngIf="this.mode" class="half-input-container">
+        <input [(ngModel)]="this.first" placeholder="{{'AUTH.FIRST' | translate}}" type="text" class="half-input" id="first-name">
+        <input [(ngModel)]="this.last" placeholder="{{'AUTH.LAST' | translate}}" type="text" class="half-input" id="last-name">
+      </div>
+      <div class="input-container">
+        <input [(ngModel)]="this.email" placeholder="{{'AUTH.EMAIL' | translate}}" type="text" class="input" id="email">
+        <img src="../../../assets/email.png" class="icon-indicator" alt="">
+      </div>
+      <div class="input-container">
+        <input [(ngModel)]="this.password" placeholder="{{'AUTH.PASSWORD' | translate}}" type="password" class="input" id="password">
+        <img src="../../../assets/password.png" class="icon-indicator" alt="">
+      </div>
+      <div *ngIf="this.mode" class="input-container">
+        <input [(ngModel)]="this.confirm" placeholder="{{'AUTH.CONFIRM' | translate}}" type="password" class="input" id="password">
+        <img src="../../../assets/password.png" class="icon-indicator" alt="">
+      </div>
+      <div *ngIf="this.mode" class="segmented-wrapper">
+        <div (click)="selectRole(0)" [class]="'segmented-choice ' + (this.selectedRoles[0])">{{("AUTH.BUTTONS.2") | translate}}</div>
+        <div (click)="selectRole(1)" [class]="'segmented-choice ' + (this.selectedRoles[1])">{{("AUTH.BUTTONS.3") | translate}}</div>
+      </div>
+      <h5 *ngIf="!this.mode" class="reset-password" [routerLink]="['/passwordreset']" [queryParams]="{email: this.email}">{{"AUTH.FORGOT" | translate}}</h5>
+      <div class="error" *ngIf="this.errorMessage && this.errorMessage != ''">{{this.errorMessage}}</div>
+      <button (click)="submit()" class="submit-button clickable">{{("AUTH.BUTTONS." + buttonText[0]) | translate}}</button>
+      <button (click)="switch()" class="switch-button clickable">{{("AUTH.BUTTONS." + buttonText[1]) | translate}}</button>
+    </div>
+    
+  </div>
+</ion-content>

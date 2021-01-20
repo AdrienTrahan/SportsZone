@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button text="{{'SETTINGS.LANGUAGE.BACKTITLE' | translate}}" color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"SETTINGS.LANGUAGE.TITLE" | translate}}</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-item class="" button>
+    <ion-label (click)="this.selectLanguage('fr')">Français</ion-label>
+  </ion-item>
+  <ion-item class="" button>
+    <ion-label (click)="this.selectLanguage('en')">English</ion-label>
+  </ion-item>
+</ion-content>

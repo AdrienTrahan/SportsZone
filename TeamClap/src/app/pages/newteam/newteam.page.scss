@@ -1,0 +1,83 @@
+.profilePictureWrapper{
+    margin: 0px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.profilePicture{
+    height: 100px;
+    width: 100px;
+    margin: 40px 0px 20px 0px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 4px #56A0F6;
+    background-color: #F2F2F2;
+}
+.instructionsPicture{
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    width: 90px;
+    text-align: center;
+    height: auto;
+    line-height: auto;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: "Roboto";
+    z-index: 1;
+}
+
+.profilePictureWrapper:active{
+    filter: brightness(0.8);
+}
+h2{
+    float: left;
+    clear: both;
+    margin: 7.5px 10px 20px 20px;
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 16px;
+}
+input{
+    float: right;
+    border: none;
+    background-color: #F2F2F2;
+    margin: 0px 20px 20px 0px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 10px 0px 10px;
+    width: 200px;
+    max-width: 40%;
+    min-width: 200px;
+}
+input:focus{
+    outline: none;
+    box-shadow: 0px 0px 0px 2px #56A0F6;
+}
+.profilePictureWrapper:not([empty="true"]) img{
+    filter: brightness(0.6);
+}
+.profilePictureWrapper:not([empty="true"]) .instructionsPicture{
+    color: white;
+}
+
+.joinButton{
+    margin: 20px;
+    --background: #25E481;
+}
+
+.profileImage{
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px 10px 10px 10px;
+}
+.spanChange{
+    color: #0088FF;
+}
+
+.infoInput{
+    text-align: right;
+    --text-align: right;
+}

@@ -1,0 +1,37 @@
+.profileImage{
+    border-radius: 50%;
+    width: calc(50% - 50px);
+    max-width: 200px;
+    min-width: 75px;
+}
+.imageCenter{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px 20px 0px;
+}
+.nameTitle{
+    font-size: 22px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+.tutorTitle{
+    font-size: 16px;
+    text-align: center;
+    margin: 2.5px 0px 0px 0px;
+    padding: 0px;
+    color: gray;
+}
+
+.highlighted{
+    color: #0098ff;
+    float: right;
+    display: span;
+    text-align: right;
+}
+.copyButton{
+    margin: 5px;
+}

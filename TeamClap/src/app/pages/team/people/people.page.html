@@ -1,0 +1,20 @@
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar (input)="search($event.target.value)" [(ngModel)]="searchbar" showCancelButton="focus"></ion-searchbar>
+  <div *ngFor="let player of (this.filtered); let i = index">
+    <ion-card (click)="selectPlayer(i, $event.target, $event)" class="clickable">
+      <app-smallplayer [img]="player.image" [role]="player.role" [first]="player.first" [last]="player.last"></app-smallplayer>
+      <div class="menu-button" *ngIf="((this.alias.teamInfo.access >= 2 && !player.role) || (this.alias.teamInfo.access == 3)) && this.currentId != player.id">
+        <ion-icon class="menu-button-2" name="ellipsis-vertical-outline"></ion-icon>
+      </div>
+    </ion-card>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

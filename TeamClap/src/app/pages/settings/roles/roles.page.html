@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button text="{{'SETTINGS.ROLESPAGE.BACKTITLE' | translate}}" color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"SETTINGS.ROLESPAGE.TITLE" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="roleContainer" *ngFor="let role of this.userInformation.availableRoles; let i = index;">{{this.options[role]}}</div>
+  <ion-button *ngIf="!this.userInformation.availableRoles || this.userInformation.availableRoles.length != 3" class="createRole" expand="block" (click)="newRole()">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    {{"SETTINGS.ROLESPAGE.0" | translate}}
+  </ion-button>
+</ion-content>

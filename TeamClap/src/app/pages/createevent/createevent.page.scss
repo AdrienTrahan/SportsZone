@@ -1,0 +1,234 @@
+.eventName{
+    border: none;
+    background-color: #F2F2F2;
+    margin: 30px 20px 20px 20px;
+    height: 50px;
+    border-radius: 8px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    max-width: 400px;
+    width: 70%;
+    min-width: 200px;
+    font-size: 20px;
+}
+.title{
+    margin: 30px 20px 20px 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+.moveButton{
+    margin: 20px 20px 20px 20px;
+    width: auto;
+}
+.placeNameInput{
+    border: none;
+    background-color: #F2F2F2;
+    color: black;
+    margin: 10px 10px 10px 10px;
+    height: 30px;
+    border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    width: auto;
+    font-size: 15px;
+    font-weight: 500;
+}
+.newItem{
+    margin: 20px 20px 20px 20px;
+}
+.newItemInstruction{
+    margin: 13px 10px 0px 15px;
+    font-weight: 700;
+    color: black;
+    font-size: 16px;
+}
+.placeAddressInput{
+    border: none;
+    background-color: #F2F2F2;
+    color: black;
+    margin: 10px 10px 10px 10px;
+    height: 30px;
+    border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    flex-grow: 1;
+    min-width: 200px;
+}
+.findPlace{
+    width: 200px;
+    margin: 7.5px 10px 0px 10px;
+}
+.findAdressWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.closeButton{
+    margin: 10px 0px 10px 10px;
+}
+.addButton{
+    margin: 10px;
+}
+.placeCard{
+    margin: 20px;
+    padding: 10px 0px 10px 0px;
+}
+.placeTitle{
+    margin: 10px 70px 5px 20px;
+    font-weight: 700;
+    color: black;
+    font-size: 16px;
+}
+.placeAddress{
+    margin: 5px 70px 10px 20px;
+    font-weight: 500;
+    color: lightskyblue;
+    font-size: 14px;
+}
+.delete{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    margin: 0px;
+    width: 50px;
+}
+.edit{
+    position: absolute;
+    top: 50%;
+    right: 70px;
+    transform: translateY(-50%);
+    margin: 0px;
+    width: 50px;
+}
+
+.momentCard{
+    height: auto;
+    padding: 0px 0px 10px 0px;
+}
+.monthTitle{
+    font-weight: 700;
+    color: black;
+    font-size: 16px;
+}
+.dayBlock{
+    margin: 10px 0px 5px 0px;
+    white-space: break-spaces;
+}
+.comaSpan{
+    margin: 0px;
+    padding: 0px;
+}
+.monthBlock{
+    margin: 10px 20px 5px 20px;
+    padding-right: 110px;
+    white-space: normal;
+}
+.hours{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    width: auto;
+}
+.firstHour{
+    font-size: 15px;
+    height: 20px;
+    margin: 0px;
+    width: auto;
+    text-align: center;
+}
+.lastHour{
+    font-size: 15px;
+    height: 20px;
+    margin: 0px;
+    width: auto;
+    text-align: center;
+}
+.middleHour{
+    margin: 0px;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: -8px;
+    height: 12px;
+}
+
+ion-item .right{
+    text-align: right;
+}
+ion-item-divider.md, ion-item-divider.wp{
+    background-color: #f5f5f5;
+}
+ion-list-header.md, ion-list-header.wp{
+    font-size: 25px;
+    font-weight: 700;
+}
+ion-list-header{
+    margin: 10px 0px 10px 0px;
+}
+.chevronIcon{
+    margin: 2px 0px 0px 2px;
+    opacity: 0.7;
+}
+.newLocation{
+    padding: 10px;
+}
+.searchAddress{
+    background-color: var(--ion-color-primary);
+    color: white;
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 5px;
+    outline: none;
+}
+.splitButton{
+    display: flex;
+    flex-direction: row;
+}
+
+.closeButton{
+    --background: var(--ion-color-danger);
+    flex: 1;
+    height: 40px;
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    color: white;
+}
+.addButton{
+    --background: var(--ion-color-primary);
+    flex: 1;
+    height: 40px;
+    margin: 0px 0px 0px 10px;
+    padding: 0px;
+    color: white;
+}
+.monthItem{
+    padding: 15px 0px 15px 0px;
+    font-weight: 700;
+    margin: 0px 50px 0px 0px;
+    white-space: pre-wrap;
+}
+.dayItem{
+    font-weight: 500;
+    margin: 10px 0px 0px 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.datesContainer{
+    width: 100%;
+    position: relative;
+
+}
+
+.trash{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    font-size: 30px;
+}

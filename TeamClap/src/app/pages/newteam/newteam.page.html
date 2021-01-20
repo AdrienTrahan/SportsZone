@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-button color="white" (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white">{{"NEWTEAM.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="this.name == ''" (click)="finish()">
+        <ion-icon color="white" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item button (click)="selectPicture()">
+    <ion-label>{{"NEWTEAM.0" | translate}}</ion-label>
+    <img class="profileImage" [src]="this.imageUrlSafe || '../../assets/sportempty.png'" alt="">
+    <span class="spanChange">{{"NEWTEAM.1" | translate}}</span>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"NEWTEAM.2" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"NEWTEAM.3" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" placeholder="ex. U16 D1" [(ngModel)]="category"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{"NEWTEAM.4" | translate}}</ion-label>
+    <ion-input type="text" class="infoInput" [(ngModel)]="city"></ion-input>
+  </ion-item>
+  <ion-button class="joinButton" expand="block" [disabled]="this.name == ''" (click)="finish()">{{"NEWTEAM.5" | translate}}</ion-button>
+</ion-content>

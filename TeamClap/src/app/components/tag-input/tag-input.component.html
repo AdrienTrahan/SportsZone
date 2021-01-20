@@ -1,0 +1,4 @@
+<div class="background">
+  <div (click)="select(i)" *ngFor="let tag of this.tags; let i = index" [class]="'tag' + ((this.highlighting && ((i == this.tags.length - 1 && this.index == -1) || (i == this.index))) ? ' highlightedTag' : '')">{{tag}}</div>
+  <input #search (keyup)="onKey($event)" [(ngModel)]="_searchField" placeholder="Search" class="tagInput" type="text">
+</div>

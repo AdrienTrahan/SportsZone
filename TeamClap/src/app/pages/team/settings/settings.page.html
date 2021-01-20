@@ -1,0 +1,6 @@
+<ion-content>
+    <ion-item button *ngIf="this.alias.teamInfo.access > 2" button routerLink="/pendinglist" routerLinkActive="active" class="" detail>{{"SETTINGS.PENDING" | translate}}</ion-item>
+    <ion-item button *ngIf="this.alias.teamInfo.access >= 2" button routerLink="/generalinfo" routerLinkActive="active" class="" detail>{{"SETTINGS.GENERAL" | translate}}</ion-item>
+    <ion-item button *ngIf="this.alias.teamInfo.access == 1" button routerLink="/playerinfo" routerLinkActive="active" class="" detail>{{"SETTINGS.PLAYER" | translate}}</ion-item>
+    <ion-button color="danger" (click)="quitTeam()">{{"SETTINGS.QUIT" | translate}}</ion-button>
+</ion-content>

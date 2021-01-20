@@ -1,0 +1,53 @@
+.profImg{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 15px 15px 15px 15px;
+    float: left;
+}
+
+h1{
+    float: left;
+    font-size: 15px;
+    padding: 2px 10px 8px 0px;
+    font-weight: 400;
+    font-family: "Roboto";
+    color: black;
+}
+.parent{
+    float: left;
+    padding: 22.5px 10px 8px 0px;
+}
+.coach{
+    float: left;
+    padding: 22.5px 10px 8px 0px;
+}
+.late{
+    float: right;
+    padding: 22.5px 10px 8px 0px;
+    color: orange;
+}
+.imgPres0{
+    background-color: #21ed95;
+}
+.imgPres1{
+    background-color: #e6e6e6;
+}
+.imgPres2{
+    background-color: #ff004c;
+}
+.bubble{
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+.bubble img{
+    filter: invert(1.0);
+    position: relative;
+    margin: 2.5px;
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+}

@@ -1,0 +1,61 @@
+:host ::ng-deep{
+    .event-detail-container{
+        display: none;
+    }
+    .monthview-container{
+        height: unset !important;
+    }
+    .monthview-selected{
+        color: inherit !important;
+    }
+    .monthview-current{
+        background-color: unset !important; 
+    }
+    .monthview-selected .bubbleWrapper{
+        background-color: transparent;
+        color: inherit;
+    }
+    .monthview-selected{
+        background-color: unset !important;
+    }
+    .monthview-primary-with-event .bubbleWrapper{
+        color: white !important;
+        background-color: #3880ff;
+    }
+    .monthview-secondary-with-event .bubbleWrapper{
+        color: white !important;
+        background-color: #76a8ff;
+    }
+    
+}
+.prevButton{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    height: auto;
+    transform: translateY(-50%);
+    margin: 0px;
+}
+.nextButton{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    height: auto;
+    transform: translateY(-50%);
+    margin: 0px;
+}
+#calendarComponent{
+    position: relative;
+}
+.bubbleWrapper{
+    padding: inherit;
+    margin: -8px;
+}
+
+.monthToolbar{
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+}

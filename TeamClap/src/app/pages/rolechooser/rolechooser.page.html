@@ -1,0 +1,18 @@
+<ion-content>
+  <div class="flexcontainer">
+    <h1><h2>{{"SETTINGS.ROLECHOOSER.TITLE" | translate}}</h2></h1>
+    <ion-icon *ngIf="!this.obligated" (click)="close()" name="close-outline" size="large" class="close"></ion-icon>
+    <ion-button *ngIf="this.obligated" size="small" class="logoutButton" (click)="logout()" slot="end" color="danger"><h2>{{"SETTINGS.LOGOUT" | translate}}</h2></ion-button>
+    <div class="wrapper">
+      <div class="card" (click)="selectRole(0)">
+        <img class="" src="../../../assets/football-fans-group.svg" alt="">
+        <h2><h2>{{"SETTINGS.ROLECHOOSER.0" | translate}}</h2></h2>
+      </div>
+      <div class="card" (click)="selectRole(1)">
+        <img class="" src="../../../assets/football-whistle-of-referee.svg" alt="">
+        <h2>{{"SETTINGS.ROLECHOOSER.1" | translate}}</h2>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

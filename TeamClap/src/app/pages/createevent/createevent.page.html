@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+        <ion-button (click)="back()">
+            <ion-icon color="white" name="close-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title color="white">{{"CREATE.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="this.eventInfo.moments.length == 0" (click)="finish()">
+        <ion-icon color="white" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>{{"CREATE.0" | translate}}</ion-label>
+    </ion-item-divider>
+    <ion-item class="">
+      <ion-label>{{"CREATE.1" | translate}}</ion-label>
+      <ion-input [(ngModel)]="eventInfo.name" class="right" placeholder="ex: Hockey game"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        {{"CREATE.2" | translate}}
+      </ion-label>
+      <ion-input [(ngModel)]="eventInfo.adversary" class="right" placeholder="ex: Wolfs"></ion-input>
+    </ion-item>
+    
+  </ion-item-group>
+  <br>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>{{"CREATE.3" | translate}}</ion-label>
+    </ion-item-divider>
+    <ion-item button detail="false" (click)="modifyPlace(i)" *ngFor="let place of this.eventInfo.places; let i = index" class="">
+      <ion-label>
+        {{place.name}}
+        <p>{{place.address}}</p>
+        <ion-icon (click)="deletePlace(i);$event.stopPropagation();" class="trash" color="danger" name="trash-outline"></ion-icon>
+      </ion-label>
+    </ion-item>
+    <ion-item class="" lines="none" *ngIf="this.addingPlace">
+      <ion-label>{{"CREATE.9" | translate}}</ion-label>
+      <ion-input [(ngModel)]="this.newPlace.name" class="right" placeholder="ex: Parc Charbonneau"></ion-input>
+    </ion-item>
+    <ion-item lines="none" *ngIf="this.addingPlace">
+      <ion-label>
+        {{"CREATE.10" | translate}}
+      </ion-label>
+      <ion-input [(ngModel)]="this.newPlace.address" class="right" placeholder="ex: 26 Rue Paradis, ..."></ion-input>
+      <button (click)="choosePlace()" class="searchAddress" clear item-right>{{"CREATE.11" | translate}}</button>
+    </ion-item>
+    <ion-item *ngIf="!this.addingPlace" (click)="addPlace()" button color="primary" class="">
+      {{"CREATE.4" | translate}}
+    </ion-item>
+    <ion-item lines="none" *ngIf="this.addingPlace" class="splitButton" (click)="addPlace()" class="">
+      <ion-button (click)="closePlace()" class="closeButton">{{"CREATE.12" | translate}}</ion-button>
+      <ion-button (click)="insertPlace()" [disabled]="!this.newPlace.name" class="addButton">{{"CREATE.13" | translate}}</ion-button>
+    </ion-item>
+  </ion-item-group>
+  <br>
+  <ion-item-group class="">
+    <ion-item-divider>
+      <ion-label>{{"CREATE.5" | translate}}</ion-label>
+    </ion-item-divider>
+    <ion-item detail="false" button (click)="modifyMoment(i)" *ngFor="let moment of this.eventInfo.moments; let i = index" class="">
+      <div class="datesContainer">
+        <ion-label class="monthItem" *ngFor="let month of moment.datesString;let j = index">
+          {{"FULLMONTHS." + month[0] | translate}} - {{month[1]}}
+          <br>
+          <p class="dayItem" *ngFor="let day of month[2];let k = index">
+            {{day}}<span *ngIf="month[2].length - 1 != k">,&nbsp;</span>
+          </p>
+        </ion-label>
+      </div>
+      <div class="hours">
+        <h1 class="firstHour">{{moment.startString}}</h1>
+        <h1 class="middleHour">-</h1>
+        <h1 class="lastHour">{{moment.endString}}</h1>
+      </div>
+      <ion-icon (click)="deleteMoment(i);$event.stopPropagation();" class="trash" color="danger" name="trash-outline"></ion-icon>
+    </ion-item>
+    <ion-item (click)="addMoment()" button color="primary" class="">
+      {{"CREATE.6" | translate}}
+    </ion-item>
+  </ion-item-group>
+  <br>
+  <ion-item-divider>
+    <ion-label>
+      {{"CREATE.7" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item class="" *ngFor="let spec of this.specifications; let i = index">
+    <ion-label class="">{{spec.name}}<p>{{spec.data}}</p></ion-label>
+    <ion-icon (click)="deleteSpec(i);$event.stopPropagation();" class="trash" color="danger" name="trash-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="" lines="none" *ngIf="this.addingSpec">
+    <ion-label>{{"CREATE.9" | translate}}</ion-label>
+    <ion-input [(ngModel)]="this.newSpec.name" class="right" placeholder="ex: Court"></ion-input>
+  </ion-item>
+  <ion-item lines="none" *ngIf="this.addingSpec">
+    <ion-label>
+      {{"CREATE.14" | translate}}
+    </ion-label>
+    <ion-input [(ngModel)]="this.newSpec.data" class="right" placeholder="ex: 6"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none" *ngIf="this.addingSpec" class="splitButton" (click)="addPlace()" class="">
+    <ion-button (click)="closeSpec()" class="closeButton">{{"CREATE.12" | translate}}</ion-button>
+    <ion-button (click)="insertSpec()" [disabled]="!this.newSpec.name || !this.newSpec.data" class="addButton">{{"CREATE.13" | translate}}</ion-button>
+  </ion-item>
+  <ion-item (click)="addSpec()" *ngIf="!this.addingSpec"class="" button color="primary">
+    {{"CREATE.8" | translate}}
+  </ion-item>
+
+</ion-content>

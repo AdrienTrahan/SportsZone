@@ -1,0 +1,8 @@
+<img src={{image}} class="profImg" alt="">
+<div *ngIf="this.pres" [class]="'bubble imgPres' + this.pres"><img [attr.src]="'../../../assets/' + this.imageName" alt=""></div>
+<h1>{{first}} {{last}}</h1>
+<span class="parent" *ngIf="this.p_first">{{p_first}} {{p_last}}</span>
+<span class="coach" *ngIf="this.role">({{this.translatedCoach}})</span>
+
+
+<span class="late" *ngIf="this.late != 0 && this.late">{{this.translatedLate}}</span>

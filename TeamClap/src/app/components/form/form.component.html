@@ -1,0 +1,15 @@
+<div *ngIf="'login'==type">
+  <app-entry (dataChanged)="updateEmail($event)" placeholder="email" type="text" [value]="this.email"></app-entry>
+  <app-entry (dataChanged)="updatePassword($event)" placeholder="password" type="password" [value]="this.password"></app-entry>
+  <p class="error" *ngIf="this.errorMessage != ''">{{this.errorMessage}}</p>
+  <app-proceed (buttonClicked)="loginFunction()" color="#55E990" content="se connecter"></app-proceed>
+</div>
+<div *ngIf="'signup'==type">
+  <app-half-entry (dataChanged)="updateFirst($event)" side="left" placeholder="first" type="text" [value]="this.first"></app-half-entry>
+  <app-half-entry (dataChanged)="updateLast($event)" side="right" placeholder="last" type="text" [value]="this.last"></app-half-entry>
+  <app-entry (dataChanged)="updateEmail($event)" placeholder="email" type="text" [value]="this.email"></app-entry>
+  <app-entry (dataChanged)="updatePassword($event)" placeholder="password" type="password" [value]="this.password"></app-entry>
+  <app-entry (dataChanged)="updateConfirm($event)" placeholder="confirm password" type="password" [value]="this.confirm"></app-entry>
+  <p class="error" *ngIf="this.errorMessage != ''">{{this.errorMessage}}</p>
+  <app-proceed (buttonClicked)="registerFunction()" color="#55E990" content="créer mon compte"></app-proceed>
+</div>

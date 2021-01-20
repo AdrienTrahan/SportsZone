@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Presence</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div>
+    <div *ngFor="let pres of (this.present); let i = index">
+      <ion-card (click)="selectPlayer(0, i)" class="clickable">
+        <app-smallplayer pres="0" [img]="pres.image" [first]="pres.first" [last]="pres.last" [role]="pres.role" [late]="pres.late"></app-smallplayer>
+      </ion-card>
+    </div>
+    <div *ngFor="let may of (this.maybe); let i = index">
+      <ion-card (click)="selectPlayer(1, i)" class="clickable">
+        <app-smallplayer pres="1" [img]="may.image" [first]="may.first" [last]="may.last" [role]="may.role"></app-smallplayer>
+      </ion-card>
+    </div>
+    <div *ngFor="let abs of (this.absent); let i = index">
+      <ion-card (click)="selectPlayer(2, i)" class="clickable">
+        <app-smallplayer pres="2" [img]="abs.image" [first]="abs.first" [last]="abs.last" [role]="abs.role"></app-smallplayer>
+      </ion-card>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

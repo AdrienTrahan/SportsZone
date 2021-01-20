@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme" >
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+          <ion-icon color="white" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white">{{"ADDRESS.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!this.address" (click)="chooseAddress()">
+        <ion-icon color="white" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flexContainer">
+    <ion-searchbar [value]="searchText" (input)="search($event.target.value)" showCancelButton="focus"></ion-searchbar>
+    <div class="suggestions" *ngIf="!suggestionsHidden">
+      <ion-list>
+        <ion-item mode='md' button (click)="moveToPosition(i)" *ngFor="let suggestion of (this.suggestions); let i = index">
+          <h6>{{suggestion.title}}</h6>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="map" id="map" class="match-parent"></div>
+  </div>
+</ion-content>

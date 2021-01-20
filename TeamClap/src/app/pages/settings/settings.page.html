@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="navbar-theme">
+        <ion-buttons slot="start">
+            <ion-button (click)="back()">
+                <ion-icon color="white" name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="white">{{"SETTINGS.TITLE" | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-item button routerLink="/editprofile" routerLinkActive="active" class="" detail>{{"SETTINGS.ACCOUNT" | translate}}</ion-item>
+    <ion-item button routerLink="/profile-settings" routerLinkActive="active" class="" detail>{{"SETTINGS.CONTACT" | translate}}</ion-item>
+    <ion-item button routerLink="/roles" routerLinkActive="active" class="" detail>{{"SETTINGS.ROLES" | translate}}</ion-item>
+    <ion-item button routerLink="/languages" routerLinkActive="active" class="" detail>{{"SETTINGS.LANGUAGES" | translate}}</ion-item>
+    <div class="spacer"></div>
+    <ion-button (click)="logout()" class="logout" color="danger" expand="block">{{"SETTINGS.LOGOUT" | translate}}</ion-button>
+  </ion-content>
+  

@@ -1,0 +1,133 @@
+
+.container{
+    display: flex;
+    padding: 0px 0px 0px 0px;
+    box-shadow: none;
+    color: black;
+    overflow: visible;
+    font-weight: 400;
+    font-family: "Roboto";
+    white-space: nowrap;
+}
+.date{
+    clear: both;
+    width: 80px !important;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    margin: 0px 0px 0px 0px;
+    white-space: nowrap;
+    max-width: 80px;
+    min-width: 80px;
+    flex: 1;
+}
+.date div{
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+.day{
+    font-size: 28px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+.month{
+    font-size: 18px;
+    white-space: nowrap;
+}
+.hour{
+    margin-top: 15px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.information{
+    float: left;
+    color: black;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    flex-grow: 1;
+}
+
+.name{
+    font-size: 17px;
+    margin: 15px 15px 5px 15px;
+    
+}
+
+.place{
+    font-size: 15px;
+    margin: 5px 15px 5px 15px;
+    color: #00c671;
+}
+
+.presence{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presence[presence="YES"]{
+    background-color: #00c671;
+}
+.presence[presence="MAYBE"]{
+    background-color: #e6e6e6;
+}
+.presence[presence="NO"]{
+    background-color: #ff004c;
+}
+.presence[presence="LATE"]{
+    background-color: orange;
+}
+img{
+    filter: invert(1.0);
+    width: 60%;
+}
+.deletinginformation{
+    margin-right: 50px;
+}
+.selectionCircle{
+    width: 20px;
+    height: 20px;
+    margin: 0px 0px 0px 10px;
+    border: 2px solid #bfbfbf;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 10px);
+}
+.selectedSelectionCircle{
+    border: none;
+    background-color: #3880ff;
+}
+.container:active > .date, .container:active > .information{
+        filter: brightness(0.95);
+}
+
+:host ::ng-deep{
+    .day{
+        font-size: 28px;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+    .month{
+        font-size: 18px;
+        white-space: nowrap;
+    }
+    .hour{
+        margin-top: 15px;
+        font-size: 18px;
+        white-space: nowrap;
+    }
+    
+}

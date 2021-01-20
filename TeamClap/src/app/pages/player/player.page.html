@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">{{playerInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [attr.invisible]="this.invisible">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-segment color="navbar-theme" [(ngModel)]="state">
+    <ion-segment-button value="Teams">
+      <ion-label>{{"PLAYERS.0" | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Upcomming">
+      <ion-label>{{"PLAYERS.1" | translate}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>  
+  <div class="wrapper">
+    <div class="cardContainer" [@enterLeft] *ngIf="this.state=='Teams'">
+      <ion-card class="clickable" *ngFor="let team of teams;let i = index">
+        <ion-item lines="none" (click)="selectTeam(i)">
+         <app-team [name]="team.name" [img]="team.image" [category]="team.category"></app-team>
+        </ion-item>
+      </ion-card>
+    </div>
+    <div class="cardContainer" [@enterRight] *ngIf="this.state=='Upcomming' && loaded">
+      <app-upcomming (presenceChanged)="changePresence($event)" [index]="i" (selected)="selectEvent($event)" *ngFor="let event of (this.events); let i = index" [teamId]="event.team" [playerId]="this.params.playerId" [id]="event.id" [presence]="event.presence" [place]="event.places" [late]="event.late" [name]="event.name" [date]="event.date + '/' + event.month + '/' + event.year + '!' + ((event.startTime - event.startTime % 60) / 60) + ':' + ('0' + event.startTime % 60).slice(-2)"></app-upcomming>
+      <ion-infinite-scroll *ngIf="this.state=='Upcomming' && loaded" threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+    <div class="joinButton clickable"  (click)="joinTeam()">
+      <img src="../../../assets/qr.png" alt="">
+    </div>
+  </div>
+</ion-content>

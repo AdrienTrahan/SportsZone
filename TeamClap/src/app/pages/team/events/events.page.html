@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-segment color="navbar-theme" [(ngModel)]="state">
+    <ion-segment-button value="Futur">
+      <ion-label>{{"EVENTS.0" | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Past">
+      <ion-label>{{"EVENTS.1" | translate}}</ion-label>
+    </ion-segment-button>
+  </ion-segment> 
+  <div class="wrapper">
+    <div class="cardContainer" [@enterLeft] *ngIf="this.state == 'Futur'">
+      <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <app-upcomming (click)="selectDeletingEvent(i)" [selectedEvent]="this.selectedEvents[i]" [deleting]="deleting" (presenceChanged)="changePresence($event)" [index]="i" (selected)="selectEvent($event)" *ngFor="let event of events; let i = index" [teamId]="event.team" [playerId]="this.params.playerId" [id]="event.id" [presence]="event.presence" [late]="event.late" [place]="event.places" [name]="event.name" [date]="event.date + '/' + event.month + '/' + event.year + '!' + ((event.startTime - event.startTime % 60) / 60) + ':' + ('0' + event.startTime % 60).slice(-2)"></app-upcomming>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+    <div class="cardContainer" [@enterLeft] *ngIf="this.state == 'Past'">
+      <ion-refresher slot="fixed" (ionRefresh)="refreshPast($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <app-upcomming (click)="openPastEvent(i)" (presenceChanged)="changePresence($event)" [index]="i" *ngFor="let pastEvent of pastEvents; let i = index" [teamId]="pastEvent.team" [playerId]="this.params.playerId" [id]="pastEvent.id" [place]="pastEvent.places" [name]="pastEvent.name" [date]="pastEvent.date + '/' + pastEvent.month + '/' + pastEvent.year + '!' + ((pastEvent.startTime - pastEvent.startTime % 60) / 60) + ':' + ('0' + pastEvent.startTime % 60).slice(-2)"></app-upcomming>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadDataPast($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>

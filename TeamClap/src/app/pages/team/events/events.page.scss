@@ -1,0 +1,15 @@
+.cardContainer{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.wrapper{
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    background-color: red;
+}
+ion-content{
+    display: flex;
+    flex-direction: column;
+}

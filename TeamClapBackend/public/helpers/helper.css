@@ -1,0 +1,27 @@
+.clickable-light{
+    outline: none;
+}
+.clickable-light:hover{
+    filter: brightness(1.05);
+}
+.clickable-light:active{
+    filter: brightness(1.2);
+}
+.clickable-dark{
+    outline: none;
+}
+.clickable-dark:hover{
+    filter: brightness(0.95);
+}
+.clickable-dark:active{
+    filter: brightness(0.8);
+}
+.clickable-dark-intense{
+    outline: none;
+}
+.clickable-dark-intense:hover{
+    filter: brightness(0.80);
+}
+.clickable-dark-intense:active{
+    filter: brightness(0.6);
+}

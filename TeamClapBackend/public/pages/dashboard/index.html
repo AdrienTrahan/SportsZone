@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SportZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="../helpers/helper.css">
+    <script src="./load.js"></script>
+    <script src="../helpers/helper.js"></script>
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div onclick="brand()" class="leftItems button">
+            <img class="brand" src="../../images/icon2.png" alt="">
+        </div>
+        <div class="rightItems">
+            <div class="profile-button">
+                <h1 class="account-name clickable-dark-intense">Adrien Trahan</h1>
+                <svg class="down-arrow" width="10" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="white"/>
+                </svg>
+                <div onmouseover="untoggleAll()" class="profile-dropdown">
+                    <div class="dropdown-content">
+                        <div onclick="logoutClicked()" class="logout-button-item clickable-dark">logout</div>
+                    </div>
+                    <div class="dropdown-arrow">
+                        <svg width="20" height="9" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path d="M8.35077 0.806799L14.4774 7.17536L14.8177 6.84799L14.4774 7.17536C15.0892 7.81127 14.6384 8.87 13.7566 8.87H1.50333C0.621597 8.87 0.170785 7.81129 0.782553 7.17537L0.422674 6.82916L0.782554 7.17537L6.90921 0.806799C7.30274 0.397734 7.95724 0.397734 8.35077 0.806799L8.7111 0.460155L8.35077 0.806799Z" fill="#F8F8F8" stroke="#D2D2D2"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="15" height="7" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="description-container">
+            <div class="container-dropdowns">
+                <div class="team-dropdown-wrapper">
+                    <button onclick="toggleTeamDropDown(this)" class="team-dropdown clickable-dark">
+                        Adrénaline - U16D1
+                        <svg class="dropdown-icon-switch" width="15" height="16" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88525 9.11337L8.65957 14.8877L14.7736 8.77371" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="team-dropdown-content">
+                                        
+                    </div>
+                </div>
+                <div class="player-dropdown-wrapper">
+                    <p class="parameters-player-button clickable-dark-intense">paramètres du joueur</p>
+                    <button onclick="togglePlayerDropDown(this)" class="player-dropdown clickable-dark">
+                        Aurélie Trahan
+                        <svg class="dropdown-icon-switch" width="15" height="16" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88525 9.11337L8.65957 14.8877L14.7736 8.77371" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="player-dropdown-content">
+                                        
+                    </div>
+                </div>
+            </div>
+            <h1 class="team-name-title">Adrénaline - U16MD1</h1>
+            <div class="spacer" style="clear: both;"></div>
+        </div>
+        <div class="segmented-selector">
+            <div class="segment-option clickable-light selected-segment">Événements</div>
+            <div class="segment-option clickable-dark">Membres de l'équipes</div>
+            <div class="segment-option clickable-dark">Messages</div>
+        </div>
+    </div>
+
+</body>
+</html>
