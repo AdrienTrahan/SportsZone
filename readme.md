@@ -4,7 +4,10 @@ This is a sports team management app I built in 2020 during Covid using Angular 
 
 The project eventually got dropped due to lack of time, but it includes all the major features you would expect in a Team management app.
 
-The app works on android, iOS and the web.
+The app works on android, iOS and the web and here's a quick <a href="https://www.youtube.com/watch?v=IpDjCxJ37_o&ab_channel=AdrienTrahan">demo</a>.
+
+<img src="SportsZone.jpg" alt="Web Welcome" width="600"/>
+
 
 **Here's a non-exhaustive list of all implemented features:**
 
