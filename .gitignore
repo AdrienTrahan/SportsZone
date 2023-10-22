@@ -1,6 +1,7 @@
-TeamClapBackend/node_modules
-TeamClap/node_modules
-TeamClap/ios
-TeamClap/android
-TeamClap/www
-TeamClapBackend/public/images/UGgnQTqKQGE9oE56nzTw_Free! iPhone 12 Mockup
+Backend/node_modules
+Mobile/node_modules
+Mobile/ios
+Mobile/android
+Mobile/www
+Backend/public/images/UGgnQTqKQGE9oE56nzTw_Free! iPhone 12 Mockup
+.vscode
