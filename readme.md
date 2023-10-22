@@ -1,23 +1,36 @@
 # SportsZone
 
-This is a sports team management app I built in 2020 during Covid using Angular Ionic, node.js, Mongodb, and plain HTML/JS/CSS. 
+SportsZone is a comprehensive sports team management app that I developed in 2020 during the COVID-19 pandemic. It was built using Angular, Ionic, Node.js, MongoDB, and plain HTML/JS/CSS. 
 
 The project eventually got dropped due to lack of time, but it includes all the major features you would expect in a Team management app.
 
-The app works on android, iOS and the web and here's a quick <a href="https://www.youtube.com/watch?v=IpDjCxJ37_o&ab_channel=AdrienTrahan">walkthrough of the app</a>.
 
-<img src="SportsZone.jpg" alt="Web Welcome" width="600"/>
+Here's a [quick walkthrough of the app](https://www.youtube.com/watch?v=IpDjCxJ37_o&ab_channel=AdrienTrahan) to get a glimpse of its functionality.
+<br>
+<br>
+<img alt="web welcome" src="SportsZone.jpg" width="600px"/>
 
 
-**Here's a non-exhaustive list of all implemented features:**
+**Key Features:**
 
-- [x] Creation of events (recurring or not) by specifying locations, time and other information (score, opponent and game statistics, etc.)
-- [x] Email notification for each added, modified or deleted event (can be disabled by user) 
-- [x] Individual attendance display
-- [x] Internal messaging (group or alone) with the possibility of exchanging multimedia content and files
-- [x] Hierarchy and permission system (coach, sub-coach, parent, player)
-- [x] Simple membership system (qr code or link) and eviction system
-- [x] Individual player statistics
-- [x] Contact sheets
-- [x] English and French support
+- **Cross-Platform Compatibility:** SportsZone is designed to work seamlessly on Android, iOS, and the web, ensuring that your team management needs are accessible on multiple devices.
+
+- **Event Management:** Create and manage events, whether they are one-time occurrences or recurring events. Specify crucial details such as location, time, scores, opponents, and game statistics.
+
+- **Email Notifications:** Stay updated with automatic email notifications for added, modified, or deleted events. Users have the flexibility to enable or disable these notifications.
+
+- **Attendance Tracking:** Easily keep track of individual player attendance, providing coaches and team managers with valuable insights into player commitment.
+
+- **Internal Messaging:** Facilitate communication within your sports team through group or one-on-one messaging. Share multimedia content and files for effective collaboration.
+
+- **Hierarchy and Permissions:** Implement a hierarchical structure with different user roles, including coach, sub-coach, parent, and player, ensuring that the right people have the appropriate access and privileges.
+
+- **Membership System:** Utilize a straightforward membership system, enabling users to join via QR codes or links. An eviction system ensures the integrity of your team's membership.
+
+- **Player Statistics:** Access and analyze individual player statistics, helping you make informed decisions regarding your team's performance and strategy.
+
+- **Contact Sheets:** Maintain a comprehensive list of team contacts, making it easy to connect with team members, parents, and coaches.
+
+- **Multi-Language Support:** SportsZone is user-friendly, offering support for both English and French, making it accessible to a broader audience.
+
 
