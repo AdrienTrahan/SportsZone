@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white" *ngIf="this.messagesAlias">{{this.messagesAlias.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToInfo()" class="">
+        <ion-icon color="white" name="information-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (touchend)="mouseup()">
+  <div #refresh></div>
+  <div class="wrapper">
+    <div #scrollView class="textView">
+      <ion-spinner id="spinner" *ngIf="this.loadingMessages" name="crescent"></ion-spinner>
+      <div (touchstart)="mousedown(i, $event)" (mouseleave)="mouseup()" [class]="(this.userId == message.userInfo.id) ? ('bubble rightBubble ' + (message.type + 'TypeContainer')): ('bubble leftBubble ' + (message.type + 'TypeContainer'))" *ngFor="let message of this.messages; let i = index">
+        <div *ngIf="message.type == 'text'" class="bubbleTextContainer">{{message.data}}</div>
+        <div *ngIf="message.type == 'media'" [class]="message.mediaClass + 'Container'">
+          <div (click)="showMediaPreview(i)" *ngIf="message.mediaClass == 'imageBubble'" [class]="message.mediaClass">
+            <img (load)="goToBottom(i)" [src]="message.dataUrl" alt="">
+          </div>
+          <div (click)="showMediaPreview(i)" *ngIf="message.mediaClass == 'videoBubble'" [class]="message.mediaClass">
+            <video (load)="goToBottom(i)" [src]="message.dataUrl" autoplay loop [muted]="'true'"></video>
+          </div>
+          <div (click)="showMediaPreview(i)" *ngIf="message.mediaClass == 'documentBubble'" [class]="message.mediaClass">
+            <h3 class="instructionTitle">{{"MESSAGES.FILEVIEW" | translate}}</h3>
+          </div>
+        </div>
+        <h5 class="bubbleAuthor" *ngIf="message.author">{{message.author}}</h5>
+      </div>
+    </div>
+    
+    <div class="inputBar">
+      <div *ngIf="buttonState" class="spinnerContainer">
+        <ion-spinner color="success" class="mediaSpinner" name="crescent"></ion-spinner>
+      </div>
+      <div *ngIf="this.mediaUpload.data" class="documentPreview">
+        <div *ngIf="mediaUpload.type == 'media'" [class]="mediaUpload.mediaClass + 'Container' + ' bubbleContainerInput'">
+          <div *ngIf="mediaUpload.mediaClass == 'imageBubble'" [class]="mediaUpload.mediaClass + ' InputBox'">
+            <img [src]="mediaUpload.data" alt="">
+          </div>
+          <div *ngIf="mediaUpload.mediaClass == 'videoBubble'" [class]="mediaUpload.mediaClass + ' InputBox'">
+            <video [src]="mediaUpload.data" autoplay loop [muted]="'true'"></video>
+          </div>
+          <div *ngIf="mediaUpload.mediaClass == 'documentBubble'" [class]="mediaUpload.mediaClass + ' InputBox'">
+            <h3 class="instructionTitle">{{"MESSAGES.FILEVIEW" | translate}}</h3>
+          </div>
+          <div class="heightDelete">
+            <div (click)="destroyMedia()" class="closeButton clickable"><ion-icon class="" name="close-outline"></ion-icon></div>
+          </div>
+        </div>
+      </div>
+      <ion-button (click)="showDocumentPicker()" *ngIf="this.inputText.length == 0 && !this.mediaUpload.data" class="imageButton">
+        <ion-icon class="imageIconButton" color="black" name="document"></ion-icon>
+      </ion-button>
+      <textarea *ngIf="!this.mediaUpload.data" #textInput oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' class="messageTextArea" type="text" [(ngModel)]="inputText"></textarea>
+      <ion-button *ngIf="!this.mediaUpload.data" [disabled]="buttonState" class="sendButton" (click)="sendMessage()">{{"MESSAGES.SEND" | translate}}</ion-button>
+      <ion-button *ngIf="this.mediaUpload.data" [disabled]="buttonState" class="sendButton2" (click)="sendMessage()">{{"MESSAGES.SEND" | translate}}</ion-button>
+    </div>
+  </div>
+  
+</ion-content>

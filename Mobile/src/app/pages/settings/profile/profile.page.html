@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button text="{{'SETTINGS.CHANGECONTACT.BACKTITLE' | translate}}" color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">{{"SETTINGS.CHANGECONTACT.TITLE" | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!this.enabledButton" (click)="this.save()" class="">
+        <ion-icon color="white" name="save-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>
+      {{"SETTINGS.CHANGECONTACT.0" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item class="" *ngFor="let contact of this.contacts; let i = index">
+    <ion-label class="">{{contact.name}}<p>{{contact.data}}</p></ion-label>
+    <ion-icon (click)="deleteContact(i);$event.stopPropagation();" class="trash" color="danger" name="trash-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="" lines="none" *ngIf="this.addingContact">
+    <ion-label>{{"SETTINGS.CHANGECONTACT.1" | translate}}</ion-label>
+    <ion-input [(ngModel)]="this.newContact.name" class="right" placeholder="ex: John's phone number"></ion-input>
+  </ion-item>
+  <ion-item class="" lines="none" *ngIf="this.addingContact">
+    <ion-label>{{"SETTINGS.CHANGECONTACT.2" | translate}}</ion-label>
+    <ion-select [(ngModel)]="this.newContact.type" (ionChange)="changedSelection($event)" value="phone" interface="popover">
+      <ion-select-option value="phone">{{"SETTINGS.CHANGECONTACT.3" | translate}}</ion-select-option>
+      <ion-select-option value="email">{{"SETTINGS.CHANGECONTACT.4" | translate}}</ion-select-option>
+      <ion-select-option value="text">{{"SETTINGS.CHANGECONTACT.5" | translate}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item lines="none" *ngIf="this.addingContact">
+    <ion-label>
+      {{"SETTINGS.CHANGECONTACT.6" | translate}}
+    </ion-label>
+    <ion-input #phoneInput (input)="mask($event)" class="right" [placeholder]="this.types[this.newContact.type]"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none" *ngIf="this.addingContact" class="splitButton" class="">
+    <ion-button (click)="closeContact()" class="closeButton">{{"SETTINGS.CHANGECONTACT.7" | translate}}</ion-button>
+    <ion-button (click)="insertContact()" [disabled]="!this.newContact.name || !this.newContact.data" class="addButton">{{"SETTINGS.CHANGECONTACT.8" | translate}}</ion-button>
+  </ion-item>
+  <ion-item (click)="addContact()" *ngIf="!this.addingContact"class="" button color="primary">
+    {{"SETTINGS.CHANGECONTACT.9" | translate}}
+  </ion-item>
+</ion-content>

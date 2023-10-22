@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-button color="white" (click)="settings()">
+        <ion-icon name="cog-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">
+      <ion-button class="navbar-button" (click)="changeRole($event)" *ngIf="this.userInformation.availableRoles && this.userInformation.availableRoles.length > 1">
+        <ion-label class="">{{"HOME.POPOVER." + this.role | translate}}</ion-label>
+        <ion-icon name="chevron-down-outline" class="dropicon"></ion-icon>
+      </ion-button>
+      <ion-label *ngIf="!this.userInformation.availableRoles || this.userInformation.availableRoles.length <= 1">{{("HOME.TITLE." + this.role + "." + ((this.role == 0 ? this.state : this.state2).toUpperCase())) | translate}}</ion-label>
+    </ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content [attr.invisible]="this.invisible">
+  
+  
+  <div *ngIf="(this.role == 0)">
+    <ion-segment color="navbar-theme" [(ngModel)]="state">
+      <ion-segment-button value="Players">
+        <ion-label>{{ "HOME.SEGMENTED.0" | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Teams">
+        <ion-label>{{ "HOME.SEGMENTED.1" | translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment> 
+    <div class="wrapper">
+      <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="cardContainer" [@enterLeft] *ngIf="this.state=='Players'">
+        <ion-card class="clickable" *ngFor="let player of players;let i = index">
+          <ion-item lines="none"(click)="selectPlayer(i)">
+           <app-player [first]="player.first" [last]="player.last" [img]="player.image"></app-player>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div class="nothingButton clickable"  (click)="addPlayer()">
+        <img src="../../../assets/plus.png" alt="">
+      </div>
+      <div class="cardContainer" [@enterRight] *ngIf="this.state=='Teams'">
+        <ion-card class="clickable" *ngFor="let team of teams;let i = index">
+          <ion-item lines="none" (click)="selectTeam(i)">
+           <app-team [name]="team.name" [img]="team.image" [category]="team.category"></app-team>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="(this.role == 1)">
+    <ion-segment color="navbar-theme" [(ngModel)]="state2">
+      <ion-segment-button value="Teams">
+        <ion-label>{{"HOME.SEGMENTED.1" | translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment> 
+    <div class="wrapper">
+      <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="cardContainer" [@enterLeft]>
+        <ion-card class="clickable" *ngFor="let hostedteam of (this.hostedTeams);let i = index">
+          <ion-item lines="none" (click)="selectHostedTeam(i)">
+           <app-team [name]="hostedteam.name" [img]="hostedteam.image" [category]="hostedteam.category"></app-team>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div class="nothingButton clickable"  (click)="addTeam()">
+        <img src="../../../assets/plus.png" alt="">
+      </div>
+      <div class="joinButton clickable"  (click)="joinTeam()">
+        <img src="../../../assets/qr.png" alt="">
+      </div>
+    </div>
+
+  </div>
+</ion-content>

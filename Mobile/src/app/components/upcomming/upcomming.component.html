@@ -1,0 +1,16 @@
+<ion-card class="container">
+  <ion-card class="date">
+    <div>
+      <div [innerHTML]="this.translatedDate"></div>
+      <span class="hour">  {{ hour }}  </span>
+    </div>
+  </ion-card>
+  <ion-card [class]="'information ' + (this.deleting ? 'deletinginformation' : '')" (click)="selectEvent($event)">
+    <h1 class="name">{{name}}</h1>
+    <h1 class="place" *ngFor="let place of places">{{place.name}}</h1>
+    <div *ngIf="!this.deleting" ignore="true" (click)="changePresence()" class="presence" [attr.presence]="((this.presence == 'YES' && this.late != '0' && this.late) ? 'LATE' : this.presence)">
+      <img ignore="true" [src]="'../../../../assets/' + symbole[this.presence]" alt="">
+    </div>
+  </ion-card>  
+  <div *ngIf="this.deleting" [class]="'selectionCircle ' + (this.selectedEvent ? 'selectedSelectionCircle' : '')"></div>
+</ion-card>

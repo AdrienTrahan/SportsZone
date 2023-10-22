@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="navbar-theme">
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="light" defaultHref="/" icon="close"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white" *ngIf="this.playerInformation.first">{{this.playerInformation.first + " " + this.playerInformation.last}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="this.playerInformation != {}" class="imageCenter">
+    <img [src]="this.playerInformation.image" class="profileImage" alt="">
+  </div>
+  <h1 *ngIf="this.playerInformation.first" class="nameTitle">{{this.playerInformation.first + " " + this.playerInformation.last}}</h1>
+  <h2 class="tutorTitle" *ngIf="this.playerInformation.role == 'player'">{{this.playerInformation.p_first + " " + this.playerInformation.p_last}}</h2>
+  <br>
+  <br>
+  <ion-item-divider *ngIf="this.playerInformation.age || this.playerInformation.sex || this.playerInformation.position || this.playerInformation.shirtnumber">
+    <ion-label>
+      {{"PLAYERPROFILE.INFO" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item *ngIf="this.playerInformation.sex && this.playerInformation.sex != 'undefined'">
+    <ion-label class="">{{"PLAYERPROFILE.SEX" | translate}}</ion-label>
+    {{"GENDER." + this.playerInformation.sex | translate}}
+  </ion-item>
+  <ion-item *ngIf="this.playerInformation.age && this.playerInformation.age != 'undefined'">
+    <ion-label class="">{{"PLAYERPROFILE.AGE" | translate}}</ion-label>
+    {{this.playerInformation.age}}
+  </ion-item>
+  <ion-item *ngIf="this.playerInformation.shirtnumber && this.playerInformation.shirtnumber != 'undefined'">
+    <ion-label class="">{{"PLAYERPROFILE.SHIRT" | translate}}</ion-label>
+    {{this.playerInformation.shirtnumber}}
+  </ion-item>
+  <ion-item *ngIf="this.playerInformation.position && this.playerInformation.position != 'undefined'">
+    <ion-label class="">{{"PLAYERPROFILE.POSITION" | translate}}</ion-label>
+    {{this.playerInformation.position}}
+  </ion-item>
+  <br>
+  <ion-item-divider *ngIf="this.playerInformation.contacts && this.playerInformation.contacts.length > 0 && this.playerInformation.role != 'player'">
+    <ion-label>
+      {{"PLAYERPROFILE.CONTACT" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item-divider *ngIf="this.playerInformation.contacts && this.playerInformation.contacts.length > 0 && this.playerInformation.role == 'player'">
+    <ion-label>
+      {{"PLAYERPROFILE.CONTACTPARENT" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item class="" *ngFor="let contact of this.playerInformation.contacts; let i = index;">
+    <ion-label class="">{{contact.name}}</ion-label>
+    <ion-label *ngIf="contact.type == 'phone'" class="highlighted" (click)="callPhoneNumber(i, false)" >{{contact.data}}</ion-label>
+    <ion-label *ngIf="contact.type == 'email'" class="highlighted" (click)="sendEmail(i, false)" >{{contact.data}}</ion-label>
+    <ion-label *ngIf="contact.type == 'text'" class="highlighted">{{contact.data}}</ion-label>
+    <ion-button (click)="copyData(i, false)" class="copyButton"><ion-icon name="copy"></ion-icon></ion-button>
+  </ion-item>
+  <br>
+  <ion-item-divider *ngIf="this.playerInformation.playerContacts && this.playerInformation.playerContacts.length > 0">
+    <ion-label>
+      {{"PLAYERPROFILE.CONTACTPLAYER" | translate}}
+    </ion-label>
+  </ion-item-divider>
+  <ion-item class="" *ngFor="let contact of this.playerInformation.playerContacts; let i = index;">
+    <ion-label class="">{{contact.name}}</ion-label>
+    <ion-label *ngIf="contact.type == 'phone'" class="highlighted" (click)="callPhoneNumber(i, true)" >{{contact.data}}</ion-label>
+    <ion-label *ngIf="contact.type == 'email'" class="highlighted" (click)="sendEmail(i, true)" >{{contact.data}}</ion-label>
+    <ion-label *ngIf="contact.type == 'text'" class="highlighted">{{contact.data}}</ion-label>
+    <ion-button (click)="copyData(i, true)" class="copyButton"><ion-icon name="copy"></ion-icon></ion-button>
+  </ion-item>
+</ion-content>
